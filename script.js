@@ -1,32 +1,30 @@
+names = [ 'spot', 'cranky', 'kittens', 'hans', 'stooges' ]
 
-names = [ 'spot', 'cranky', 'kittens', 'animal4', 'animal5' ]
+animalList = document.getElementById('animalList'); // this is the <ul> (GLOBAL)
 
-animalList = document.getElementById('animalList'); // this is the ul
-
-names.forEach( function(animalName) {  // loop through the names and create <li>s
+// loop through the names and create <li>s and <a>s with animal name ids
+names.forEach( function(animalName) {
     var li = document.createElement('li');
     var a = document.createElement('a');
     a.textContent = animalName;
     a.id = animalName;
-    li.classList.add('animal');
     a.href = "#";
     li.appendChild(a);
-    animalList.append(li);  // apppend the li, which includes the a child, to ul
+    animalList.append(li);  // append <li>s, which includes the <a> children, to <ul>
 });
 
-////////////////////////////////
-
-// var todosUl = document.querySelector('ul');
-
+// add event listener to the <ul>
 animalList.addEventListener("click", function(event) {
+    // assign the clicked target <a> element value to elementClicked
     var elementClicked = event.target;
-    // if (elementClicked.className === 'animal') {
-    if (elementClicked.id === 'spot') {
-        document.getElementById("animalImage").src="images/spot.jpg";
-    }
-
-
-    // }
+    // loop through the array of names
+    names.forEach( function(animalName) {
+        // if the name matches the <a> element's id we change the image src
+        if (elementClicked.id === animalName) {
+            // images are named accordingly, ie spot's image is spot.jpg
+            document.getElementById("animalImage").src="images/" + animalName + ".jpg";
+        }
+    });
 });
 
 
