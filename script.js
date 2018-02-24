@@ -10,7 +10,7 @@ animals.name.forEach( function(animalName) {  // loop through the names and crea
     var li = document.createElement('li');
     var a = document.createElement('a');
     a.textContent = animalName;
-    li.id = animalName;
+    a.id = animalName;
     li.classList.add('animal');
     a.href = "#";
     li.appendChild(a);
@@ -21,10 +21,13 @@ animals.name.forEach( function(animalName) {  // loop through the names and crea
 
 // var todosUl = document.querySelector('ul');
 
-document.getElementById("spot").addEventListener("click", function(event) {
-    // var elementClicked = event.target;
+animalList.addEventListener("click", function(event) {
+    var elementClicked = event.target;
     // if (elementClicked.className === 'animal') {
-    document.getElementById("animalImage").src="images/spot.jpg";
+    if (elementClicked.id === 'spot') {
+        document.getElementById("animalImage").src="images/spot.jpg";
+    }
+
 
     // }
 });
