@@ -1,12 +1,9 @@
 
-var animals = {
-    name: [ 'spot', 'cranky', 'kittens', 'animal4', 'animal5' ],
-    clicks: [ 0, 0, 0, 0, 0 ],
-};
+names = [ 'spot', 'cranky', 'kittens', 'animal4', 'animal5' ]
 
 animalList = document.getElementById('animalList'); // this is the ul
 
-animals.name.forEach( function(animalName) {  // loop through the names and create <li>s
+names.forEach( function(animalName) {  // loop through the names and create <li>s
     var li = document.createElement('li');
     var a = document.createElement('a');
     a.textContent = animalName;
