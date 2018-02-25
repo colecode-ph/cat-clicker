@@ -28,13 +28,13 @@ animalList.addEventListener("click", function(event) {
             document.getElementById("animalImage").src=("images/" + animalName + ".jpg");
             // also change the image element class name to the animalName value
             document.getElementById("animalImage").className = animalName;
-            // and change the h1 to show the name as well
+            // and change the h1 below the image to show the name as well
             document.getElementById("animalName").textContent = animalName +"!";
             // get the array position of the names array item
             arrayPosition = animals.names.indexOf(animalName); // number between 0 and 4
             // assign this value to a varible for modification of animalIncrementHeader text
             newClickValue = animals.clicks[arrayPosition];
-            // modify the text to reflect the new value
+            // modify the text to reflect the new values in h2 below image
             document.getElementById("animalIncrementHeader").textContent =
             "You have clicked " + animalName + "'s image " + newClickValue + " times.";
         }
