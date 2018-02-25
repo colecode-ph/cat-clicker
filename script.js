@@ -11,7 +11,7 @@ animals.names.forEach( function(animalName) {
     var a = document.createElement('a');
     a.textContent = animalName;
     a.id = animalName;
-    a.href = "#";
+    a.href = "#";  // just a placeholder, do I need this?
     li.appendChild(a);
     animalList.append(li);  // append <li>s, which includes the <a> children, to <ul>
 });
@@ -25,11 +25,18 @@ animalList.addEventListener("click", function(event) {
         // if the name matches the <a> element's id we change the image src
         if (elementClicked.id === animalName) {
             // images are named accordingly, ie spot's image is spot.jpg
-            // also change the class name to the animalName value
             document.getElementById("animalImage").src=("images/" + animalName + ".jpg");
+            // also change the image element class name to the animalName value
             document.getElementById("animalImage").className = animalName;
+            // and change the h1 to show the name as well
+            document.getElementById("animalName").textContent = animalName +"!";
+            // get the array position of the names array item
+            arrayPosition = animals.names.indexOf(animalName); // number between 0 and 4
+            // assign this value to a varible for modification of animalIncrementHeader text
+            newClickValue = animals.clicks[arrayPosition];
+            // modify the text to reflect the new value
             document.getElementById("animalIncrementHeader").textContent =
-                "You Have Clicked " + animalName + "'s image " + 0 + " times.";
+            "You have clicked " + animalName + "'s image " + newClickValue + " times.";
         }
     });
 });
@@ -46,14 +53,9 @@ animalImage.addEventListener("click", function(event) {
     animals.clicks[arrayPosition] += 1;
     // assign this value to a varible for modification of animalIncrementHeader text
     newClickValue = animals.clicks[arrayPosition];
-
-    console.log(newClickValue);
     // modify the text to reflect the new value
     document.getElementById("animalIncrementHeader").textContent =
         "You have clicked " + animalName + "'s image " + newClickValue + " times.";
-
-
-
  });
 
 
