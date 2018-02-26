@@ -71,7 +71,13 @@ var viewImage = {
 
     render: function() {
         console.log("viewImage render function runs")
-        // modify the text to reflect the new value
+        // render the correct image
+        document.getElementById("animalImage").src=("images/" + values[0] + ".jpg");
+        // also change the image element class name to the animalName value
+        document.getElementById("animalImage").className = values[0];
+        // and change the h1 below the image to show the name as well
+        document.getElementById("animalName").textContent = values[0] +"!";
+        // modify the h2 text to reflect the new values
         document.getElementById("animalIncrementHeader").textContent =
         "You have clicked " + values[0] + "'s image " + values[1] + " times.";
 
