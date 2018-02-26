@@ -6,10 +6,7 @@ var model = {
 
 var octopus = {
     animalList: document.getElementById('animalList'), // this is the <ul> element
-
     listClick: function() {
-        console.log("octopus.listClick function runs");
-        // add event listener to the <ul>
         this.animalList.addEventListener("click", function(event) {
             // assign the clicked target <a> element value to elementClicked
             var elementClicked = event.target;
@@ -27,11 +24,8 @@ var octopus = {
             });
         });
     },
-
     animalImage: document.getElementById('animalImage'), // this is the <img> element
-
     imageClick: function() {
-        console.log("octopus.imageClick function runs");
         this.animalImage.addEventListener("click", function(event) {
             // get the array position of the names array item matching image class name
             // then assign it to a variable to pass to the indexOf function
@@ -48,7 +42,6 @@ var octopus = {
             return viewImage.render();
         });
     },
-
     init: function() {
             viewList.init();
             this.imageClick();
@@ -61,15 +54,14 @@ var viewList = {
     init: function() {
         viewList.render();
     },
-    // loop through the names and create <li>s and <a>s with animal name ids
     render: function() {
-        console.log("viewList render function runs")
+        // loop through the names and create <li>s and <a>s with animal name ids
         model.names.forEach( function(animalName) {
             var li = document.createElement('li');
             var a = document.createElement('a');
             a.textContent = animalName;
             a.id = animalName;
-            a.href = "#";  // just a placeholder, do I need this? (makes the hover hand)
+            // a.href = "#";  // just a placeholder, do I need this? (makes the hover hand)
             li.appendChild(a);
             var animalList = document.getElementById('animalList'); // this is the <ul> element
             animalList.append(li);  // append <li>s, which includes the <a> children, to <ul>
@@ -77,13 +69,12 @@ var viewList = {
     }
 };
 
+
 var viewImage = {
     init: function() {
         viewImage.render();
     },
-
     render: function() {
-        console.log("viewImage render function runs");
         // render the correct image
         document.getElementById("animalImage").src=("images/" + values[0] + ".jpg");
         // also change the image element class name to the animalName value
