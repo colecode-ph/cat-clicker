@@ -10,7 +10,7 @@ var octopus = {
     listClick: function() {
         console.log("octopus.listClick function runs");
         // add event listener to the <ul>
-        animalList.addEventListener("click", function(event) {
+        this.animalList.addEventListener("click", function(event) {
             // assign the clicked target <a> element value to elementClicked
             var elementClicked = event.target;
             // loop through the array of names
@@ -32,7 +32,7 @@ var octopus = {
 
     imageClick: function() {
         console.log("octopus.imageClick function runs");
-        animalImage.addEventListener("click", function(event) {
+        this.animalImage.addEventListener("click", function(event) {
             // get the array position of the names array item matching image class name
             // then assign it to a variable to pass to the indexOf function
             var animalName = animalImage.className;
@@ -83,7 +83,7 @@ var viewImage = {
     },
 
     render: function() {
-        console.log("viewImage render function runs")
+        console.log("viewImage render function runs");
         // render the correct image
         document.getElementById("animalImage").src=("images/" + values[0] + ".jpg");
         // also change the image element class name to the animalName value
