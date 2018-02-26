@@ -5,20 +5,34 @@ var model = {
 
 
 var octopus = {
-
-    // animalList: document.getElementById('animalList'), // this is the <ul> element
+    animalList: document.getElementById('animalList'), // this is the <ul> element
 
     listClick: function() {
-
+        console.log("octopus.listClick function runs");
+        // add event listener to the <ul>
+        animalList.addEventListener("click", function(event) {
+            // assign the clicked target <a> element value to elementClicked
+            var elementClicked = event.target;
+            // loop through the array of names
+            model.names.forEach( function(animalName) {
+                // if the name matches the <a> element's id we return it and the click value?
+                if (elementClicked.id === animalName) {
+                    // get the array position of the names array item
+                    arrayPosition = model.names.indexOf(animalName); // number between 0 and 4
+                    // assign this value to a varible for modification of animalIncrementHeader text
+                    newClickValue = model.clicks[arrayPosition];
+                    values = [animalName, newClickValue];
+                    return viewImage.render();
+                }
+            });
+        });
     },
 
     animalImage: document.getElementById('animalImage'), // this is the <img> element
 
     imageClick: function() {
         console.log("octopus.imageClick function runs");
-
         animalImage.addEventListener("click", function(event) {
-
             // get the array position of the names array item matching image class name
             // then assign it to a variable to pass to the indexOf function
             var animalName = animalImage.className;
@@ -28,11 +42,9 @@ var octopus = {
             // assign this value to a varible for modification of animalIncrementHeader text
             newClickValue = model.clicks[arrayPosition];
 
-            console.log(newClickValue);
-            console.log(animalName);
-
+            // console.log(newClickValue);
+            // console.log(animalName);
             values = [animalName, newClickValue];
-
             return viewImage.render();
         });
     },
@@ -40,6 +52,7 @@ var octopus = {
     init: function() {
             viewList.init();
             this.imageClick();
+            this.listClick();
     },
 };
 
@@ -80,8 +93,6 @@ var viewImage = {
         // modify the h2 text to reflect the new values
         document.getElementById("animalIncrementHeader").textContent =
         "You have clicked " + values[0] + "'s image " + values[1] + " times.";
-
-
     }
 }
 
