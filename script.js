@@ -47,7 +47,7 @@ animalImage = document.getElementById('animalImage'); // this is the <img> eleme
 animalImage.addEventListener("click", function(event) {
     // get the array position of the names array item matching image class name
     // then assign it to a variable to pass to the indexOf function
-    var animalName = animalImage.className
+    var animalName = animalImage.className;
     arrayPosition = animals.names.indexOf(animalName); // number between 0 and 4
     // increment the value of the clicks array item at that same position
     animals.clicks[arrayPosition] += 1;

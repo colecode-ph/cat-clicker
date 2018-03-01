@@ -35,9 +35,6 @@ var octopus = {
             model.clicks[arrayPosition] += 1;
             // assign this value to a varible for modification of animalIncrementHeader text
             newClickValue = model.clicks[arrayPosition];
-
-            // console.log(newClickValue);
-            // console.log(animalName);
             values = [animalName, newClickValue];
             return viewImage.render();
         });
@@ -61,7 +58,7 @@ var viewList = {
             var a = document.createElement('a');
             a.textContent = animalName;
             a.id = animalName;
-            // a.href = "#";  // just a placeholder, do I need this? (makes the hover hand)
+            a.href = "#";  // just a placeholder, do I need this? (makes link look clickable)
             li.appendChild(a);
             var animalList = document.getElementById('animalList'); // this is the <ul> element
             animalList.append(li);  // append <li>s, which includes the <a> children, to <ul>
